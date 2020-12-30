@@ -17,7 +17,14 @@ const App = (props) => {
     setVotes(copy)
   }
 
-  const nextAnectode = () => setSelected(Math.floor(Math.random() * 6))
+  const nextAnectode = () => {
+    let rand = Math.floor(Math.random() * 6);
+    while(rand === selected) {
+      rand = Math.floor(Math.random() * 6);
+    }
+    setSelected(rand);
+  }
+  
   let max = Number.MIN_VALUE;
   let maxIndex = 0;
   for(let i= 0; i < votes.length; i++) {
